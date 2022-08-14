@@ -1,0 +1,3 @@
+# vue-simple-dropdown <a href="https://npm.im/vue-simple-dropdown"><img src="https://badgen.net/npm/v/vue-simple-dropdown"></a> ![](https://img.badgesize.io/kouts/vue-simple-dropdown/main/dist/vue-simple-dropdown.umd.js.svg) ![](https://img.badgesize.io/kouts/vue-simple-dropdown/main/dist/vue-simple-dropdown.umd.js.svg?compression=gzip) ![](coverage/badge.svg)
+
+A Vue.js 3 simple dropdown component.
