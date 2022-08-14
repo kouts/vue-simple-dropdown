@@ -10,6 +10,8 @@ const example = ref('vue-simple-dropdown')
 <template>
   <div class="container mx-auto px-4">
     <div h1 class="text-3xl font-bold pt-4">Playground for {{ example }}</div>
-    <SimpleDropdown />
+    <div class="mt-4">
+      <SimpleDropdown class="inline" />
+    </div>
   </div>
 </template>
