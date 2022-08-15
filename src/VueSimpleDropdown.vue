@@ -52,7 +52,9 @@ const popoverKeydown = (e: KeyboardEvent) => {
   }
 }
 const show = () => {
-  document.addEventListener('keydown', popoverKeydown)
+  if (props.enableArrowNavigation) {
+    document.addEventListener('keydown', popoverKeydown)
+  }
 }
 
 const hide = () => {
