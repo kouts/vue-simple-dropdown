@@ -13,15 +13,15 @@ const toggle = ref(true)
       <button type="button" class="border py-2 px-4 rounded" @click="toggle = !toggle">Toggle</button>
     </div>
     <div v-if="toggle" class="mt-4">
-      <SimpleDropdown class="inline" popper-class="w-44 bg-white border rounded shadow-lg">
-        <!-- This will be the popover reference (for the events and position) -->
+      <SimpleDropdown class="inline" popper-class="w-44 bg-white border rounded-lg shadow-lg">
+        <!-- Popover trigger -->
         <button
           class="inline-block px-6 py-2.5 bg-blue-600 text-white leading-tight rounded hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
         >
           Click me
         </button>
 
-        <!-- This will be the content of the popover -->
+        <!-- Popover content -->
         <template #popper="{ hide }">
           <ul class="py-1 text-sm text-gray-70">
             <li>

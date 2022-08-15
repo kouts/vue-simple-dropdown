@@ -62,3 +62,9 @@ onBeforeUnmount(() => {
   document.removeEventListener('keydown', popoverKeydown)
 })
 </script>
+
+<style>
+.v-popper--theme-simple-dropdown .v-popper__arrow-container {
+  display: none;
+}
+</style>
