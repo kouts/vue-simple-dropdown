@@ -1,6 +1,6 @@
 <template>
   <BaseDropdown
-    ref="baseDropdown"
+    ref="baseDropdownRef"
     :distance="14"
     placement="bottom-start"
     :triggers="['click']"
@@ -16,29 +16,19 @@
 
 <script setup lang="ts">
 import BaseDropdown from './BaseDropdown.vue'
+import { BaseDropdownRef, Props } from './VueSimpleDropdown.types'
 import { getNextActiveElement, isVisible } from './utils'
 import { onBeforeUnmount, ref } from 'vue'
 import 'floating-vue/dist/style.css'
 
-interface Props {
-  dropdownItemSelector?: string
-  enableArrowNavigation?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  dropdownItemSelector: 'li > a:not(.disabled):not(:disabled)'
-})
-
-type popperContentRef = { $el: HTMLElement }
-type baseDropdownRef = { hide: () => void; $el: HTMLElement; $refs: { popperContent: popperContentRef } }
-
+const props = defineProps(Props)
 const ARROW_UP_KEY = 'ArrowUp'
 const ARROW_DOWN_KEY = 'ArrowDown'
 const ESCAPE_KEY = 'Escape'
-const baseDropdown = ref<baseDropdownRef | null>(null)
+const baseDropdownRef = ref<BaseDropdownRef | null>(null)
 
 const popoverKeydown = (e: KeyboardEvent) => {
-  const popover = baseDropdown.value as baseDropdownRef
+  const popover = baseDropdownRef.value as BaseDropdownRef
   const popperContentEl = popover.$refs.popperContent.$el
 
   if ([ARROW_UP_KEY, ARROW_DOWN_KEY].includes(e.key)) {
@@ -52,7 +42,7 @@ const popoverKeydown = (e: KeyboardEvent) => {
       return
     }
 
-    const target = e.target as HTMLInputElement
+    const target = e.target as HTMLElement
 
     getNextActiveElement(items, target, e.key === ARROW_DOWN_KEY, !items.includes(target)).focus()
   }
