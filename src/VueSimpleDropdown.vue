@@ -1,9 +1,10 @@
 <template>
-  <BaseDropdown
+  <Dropdown
     ref="baseDropdownRef"
     :distance="14"
-    placement="bottom-start"
     :triggers="['click']"
+    theme="simple-dropdown"
+    placement="bottom-start"
     auto-hide
     @show="show"
     @hide="hide"
@@ -11,12 +12,12 @@
     <template v-for="(_, slot) in $slots" #[slot]="scope">
       <slot :name="slot" v-bind="scope || {}" />
     </template>
-  </BaseDropdown>
+  </Dropdown>
 </template>
 
 <script setup lang="ts">
-import BaseDropdown from './BaseDropdown.vue'
 import { BaseDropdownRef, Props } from './VueSimpleDropdown.types'
+import { Dropdown } from 'floating-vue'
 import { getNextActiveElement, isVisible } from './utils'
 import { onBeforeUnmount, ref } from 'vue'
 import 'floating-vue/dist/style.css'
