@@ -10,7 +10,7 @@ const toggle = ref(true)
   <div class="container mx-auto px-4">
     <div h1 class="text-3xl font-bold pt-4">Playground for {{ example }}</div>
     <div class="mt-4">
-      <button type="button" class="border p-2" @click="toggle = !toggle">Toggle</button>
+      <button type="button" class="border py-2 px-4 rounded" @click="toggle = !toggle">Toggle</button>
     </div>
     <div v-if="toggle" class="mt-4">
       <SimpleDropdown class="inline" popper-class="border rounded">
@@ -23,8 +23,8 @@ const toggle = ref(true)
 
         <!-- This will be the content of the popover -->
         <template #popper="{ hide }">
-          <div class="w-44 bg-white rounded shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
+          <div class="w-44 bg-white rounded shadow">
+            <ul class="py-1 text-sm text-gray-70">
               <li>
                 <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none" @click="hide">Dashboard</a>
               </li>
