@@ -12,8 +12,9 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": [
-      "esnext",
-      "dom"
+      "ES2016",
+      "DOM",
+      "DOM.Iterable"
     ],
     "paths": {
       "@/*": [
