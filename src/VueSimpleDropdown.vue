@@ -72,19 +72,3 @@ onBeforeUnmount(() => {
   document.removeEventListener('keydown', popoverKeydown)
 })
 </script>
-
-<style scoped>
-.v-popper--theme-simple .v-popper__inner {
-  background: #fff;
-}
-.v-popper--theme-simple .v-popper__arrow-inner {
-  visibility: visible;
-  border-color: #fff;
-}
-.v-popper--theme-simple .v-popper__arrow-outer {
-  border-color: #ddd;
-}
-.v-popper--theme-simple .v-popper__arrow-outer {
-  border-color: #ddd;
-}
-</style>
