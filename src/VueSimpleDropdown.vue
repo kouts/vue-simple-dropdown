@@ -20,7 +20,6 @@ import { BaseDropdownRef, Props } from './VueSimpleDropdown.types'
 import { Dropdown } from 'floating-vue'
 import { getNextActiveElement, isVisible } from './utils'
 import { onBeforeUnmount, ref } from 'vue'
-import 'floating-vue/dist/style.css'
 
 const props = defineProps(Props)
 const ARROW_UP_KEY = 'ArrowUp'
