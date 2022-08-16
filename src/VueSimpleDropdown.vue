@@ -29,12 +29,11 @@ const baseDropdownRef = ref<BaseDropdownRef | null>(null)
 
 const popoverKeydown = (e: KeyboardEvent) => {
   const popover = baseDropdownRef.value as BaseDropdownRef
-  const popperContentEl = popover.$refs.popperContent.$el
 
   if ([ARROW_UP_KEY, ARROW_DOWN_KEY].includes(e.key)) {
     e.preventDefault()
 
-    let items = [...popperContentEl.querySelectorAll(`${props.dropdownItemSelector}`)] as HTMLElement[]
+    let items = [...popover.$refs.popperContent.$el.querySelectorAll(`${props.dropdownItemSelector}`)] as HTMLElement[]
 
     items = items.filter((element) => isVisible(element))
 
