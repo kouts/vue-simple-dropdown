@@ -2,13 +2,12 @@
 import SimpleDropdown from '@/VueSimpleDropdown.vue'
 import { ref } from 'vue'
 
-const example = ref('vue-simple-dropdown')
 const toggle = ref(true)
 </script>
 
 <template>
   <div class="container mx-auto px-4">
-    <div h1 class="text-3xl font-bold pt-4">Playground for {{ example }}</div>
+    <h1 class="text-3xl font-bold pt-4">Playground for vue-simple-dropdown</h1>
     <div class="mt-4">
       <button type="button" class="border py-2 px-4 rounded" @click="toggle = !toggle">Toggle</button>
     </div>
