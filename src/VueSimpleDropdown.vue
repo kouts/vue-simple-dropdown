@@ -50,11 +50,9 @@ const popoverKeydown = (e: KeyboardEvent) => {
   if (e.key === ESCAPE_KEY) {
     popover.hide()
   }
-  if (e.key === ENTER_KEY || e.key === SPACE_KEY) {
-    if (e.target === popover.$refs.popperContent.$el) {
-      e.preventDefault()
-      popover.hide()
-    }
+  if ((e.key === ENTER_KEY || e.key === SPACE_KEY) && e.target === popover.$refs.popperContent.$el) {
+    e.preventDefault()
+    popover.hide()
   }
 }
 const show = () => {
