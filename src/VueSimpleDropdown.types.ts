@@ -14,6 +14,7 @@ export type PopperContentRef = { $el: HTMLElement }
 export type PopperRef = { $_targetNodes: HTMLElement[] }
 
 export type BaseDropdownRef = {
+  show: () => void
   hide: () => void
   $el: HTMLElement
   $refs: { popperContent: PopperContentRef; popper: PopperRef }

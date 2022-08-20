@@ -25,6 +25,8 @@ const props = defineProps(Props)
 const ARROW_UP_KEY = 'ArrowUp'
 const ARROW_DOWN_KEY = 'ArrowDown'
 const ESCAPE_KEY = 'Escape'
+const ENTER_KEY = 'Enter'
+const SPACE_KEY = ' '
 const baseDropdownRef = ref<BaseDropdownRef | null>(null)
 
 const popoverKeydown = (e: KeyboardEvent) => {
@@ -47,6 +49,14 @@ const popoverKeydown = (e: KeyboardEvent) => {
   }
   if (e.key === ESCAPE_KEY) {
     popover.hide()
+  }
+  if (e.key === ENTER_KEY || e.key === SPACE_KEY) {
+    if (e.target === popover.$refs.popperContent.$el) {
+      e.preventDefault()
+      popover.hide()
+    } else {
+      popover.show()
+    }
   }
 }
 const show = () => {
