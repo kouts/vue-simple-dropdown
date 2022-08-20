@@ -57,6 +57,9 @@ const show = () => {
 
 const hide = () => {
   document.removeEventListener('keydown', popoverKeydown)
+  const popover = baseDropdownRef.value as BaseDropdownRef
+
+  popover.$refs.popper.$_targetNodes?.[0]?.focus()
 }
 
 onBeforeUnmount(() => {

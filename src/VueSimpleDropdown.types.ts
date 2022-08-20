@@ -11,4 +11,10 @@ export const Props = {
 
 export type PopperContentRef = { $el: HTMLElement }
 
-export type BaseDropdownRef = { hide: () => void; $el: HTMLElement; $refs: { popperContent: PopperContentRef } }
+export type PopperRef = { $_targetNodes: HTMLElement[] }
+
+export type BaseDropdownRef = {
+  hide: () => void
+  $el: HTMLElement
+  $refs: { popperContent: PopperContentRef; popper: PopperRef }
+}
