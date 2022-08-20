@@ -1,5 +1,5 @@
 export const Props = {
-  dropdownItemSelector: {
+  itemSelector: {
     type: String,
     default: 'li > a:not(.disabled):not(:disabled)'
   },

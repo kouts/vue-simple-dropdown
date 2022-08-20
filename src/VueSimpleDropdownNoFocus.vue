@@ -25,7 +25,24 @@ const props = defineProps(Props)
 const ARROW_UP_KEY = 'ArrowUp'
 const ARROW_DOWN_KEY = 'ArrowDown'
 const ESCAPE_KEY = 'Escape'
+const ENTER_KEY = 'Enter'
+const SPACE_KEY = ' '
 const baseDropdownRef = ref<BaseDropdownRef | null>(null)
+const activeClass = 'bg-gray-100'
+
+const getItems = (containerEl: HTMLElement) => {
+  const items = [...containerEl.querySelectorAll(`${props.itemSelector}`)] as HTMLElement[]
+
+  return items.filter((element) => isVisible(element))
+}
+
+const getActiveItem = (items: HTMLElement[]) => {
+  return items.find((item) => item.classList.contains(activeClass))
+}
+
+const clearActiveState = (items: HTMLElement[]) => {
+  items.forEach((item) => item.classList.remove(activeClass))
+}
 
 const popoverKeydown = (e: KeyboardEvent) => {
   const popover = baseDropdownRef.value as BaseDropdownRef
@@ -33,20 +50,28 @@ const popoverKeydown = (e: KeyboardEvent) => {
   if ([ARROW_UP_KEY, ARROW_DOWN_KEY].includes(e.key)) {
     e.preventDefault()
 
-    let items = [...popover.$refs.popperContent.$el.querySelectorAll(`${props.dropdownItemSelector}`)] as HTMLElement[]
-
-    items = items.filter((element) => isVisible(element))
+    const items = getItems(popover.$refs.popperContent.$el)
 
     if (!items.length) {
       return
     }
 
-    const target = e.target as HTMLElement
+    const target = getActiveItem(items) ?? (e.target as HTMLElement)
+    const activeElement = getNextActiveElement(items, target, e.key === ARROW_DOWN_KEY, false)
 
-    getNextActiveElement(items, target, e.key === ARROW_DOWN_KEY, !items.includes(target)).focus()
+    clearActiveState(items)
+    activeElement.classList.add(activeClass)
   }
   if (e.key === ESCAPE_KEY) {
     popover.hide()
+  }
+  if (e.key === ENTER_KEY || e.key === SPACE_KEY) {
+    if (e.target === popover.$refs.popperContent.$el) {
+      e.preventDefault()
+      popover.hide()
+    } else {
+      getActiveItem(getItems(popover.$refs.popperContent.$el))?.click()
+    }
   }
 }
 const show = () => {
@@ -56,6 +81,15 @@ const show = () => {
 }
 
 const hide = () => {
+  const popover = baseDropdownRef.value as BaseDropdownRef
+
+  if (popover) {
+    clearActiveState(getItems(popover.$refs.popperContent.$el))
+    const popoverTrigger = popover.$el.firstElementChild as HTMLElement | null
+
+    popoverTrigger?.focus()
+  }
+
   document.removeEventListener('keydown', popoverKeydown)
 }
 
