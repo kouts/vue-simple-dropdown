@@ -54,8 +54,6 @@ const popoverKeydown = (e: KeyboardEvent) => {
     if (e.target === popover.$refs.popperContent.$el) {
       e.preventDefault()
       popover.hide()
-    } else {
-      popover.show()
     }
   }
 }
@@ -69,7 +67,7 @@ const hide = () => {
   document.removeEventListener('keydown', popoverKeydown)
   const popover = baseDropdownRef.value as BaseDropdownRef
 
-  popover.$refs.popper.$_targetNodes?.[0]?.focus()
+  popover?.$refs.popper.$_targetNodes?.[0]?.focus()
 }
 
 onBeforeUnmount(() => {
