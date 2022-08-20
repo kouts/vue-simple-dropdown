@@ -30,14 +30,18 @@ const SPACE_KEY = ' '
 const baseDropdownRef = ref<BaseDropdownRef | null>(null)
 
 const popoverKeydown = (e: KeyboardEvent) => {
-  const popover = baseDropdownRef.value as BaseDropdownRef
+  const popover = baseDropdownRef.value
+
+  if (!popover) {
+    return
+  }
 
   if ([ARROW_UP_KEY, ARROW_DOWN_KEY].includes(e.key)) {
     e.preventDefault()
 
     let items = [...popover.$refs.popperContent.$el.querySelectorAll(`${props.itemSelector}`)] as HTMLElement[]
 
-    items = items.filter((element) => isVisible(element))
+    items = items.filter((element) => isVisible(element as HTMLElement))
 
     if (!items.length) {
       return
@@ -47,14 +51,17 @@ const popoverKeydown = (e: KeyboardEvent) => {
 
     getNextActiveElement(items, target, e.key === ARROW_DOWN_KEY, !items.includes(target)).focus()
   }
+
   if (e.key === ESCAPE_KEY) {
     popover.hide()
   }
+
   if ((e.key === ENTER_KEY || e.key === SPACE_KEY) && e.target === popover.$refs.popperContent.$el) {
     e.preventDefault()
     popover.hide()
   }
 }
+
 const show = () => {
   if (props.enableArrowNavigation) {
     document.addEventListener('keydown', popoverKeydown)
@@ -63,7 +70,7 @@ const show = () => {
 
 const hide = () => {
   document.removeEventListener('keydown', popoverKeydown)
-  const popover = baseDropdownRef.value as BaseDropdownRef
+  const popover = baseDropdownRef.value
 
   popover?.$refs.popper.$_targetNodes?.[0]?.focus()
 }
