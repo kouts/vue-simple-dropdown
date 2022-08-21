@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.1...v1.0.2) (2022-08-21)
+
+
+### Bug Fixes
+
+* fixed package name ([b87bda3](https://github.com/kouts/vue-simple-dropdown/commit/b87bda395815d0dd0e04c3d441c203c4d969e926))
+
 ## [1.0.1](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.0...v1.0.1) (2022-08-21)
 
 
