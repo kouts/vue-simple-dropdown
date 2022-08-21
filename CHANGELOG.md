@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.0...v1.0.1) (2022-08-21)
+
+
+### Bug Fixes
+
+* removed unneeded line ([3f6810a](https://github.com/kouts/vue-simple-dropdown/commit/3f6810a2e1f5468da8a4380e5ca3815070f78987))
+
 # 1.0.0 (2022-08-21)
 
 
