@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { BaseDropdownRef, Props } from './SimpleDropdown.types'
+import { BaseDropdownRef, Props } from '@/SimpleDropdown.types'
 import { Dropdown } from 'floating-vue'
-import { getNextActiveElement, isVisible } from './utils'
+import { getNextActiveElement, isVisible } from '@/utils'
 import { onBeforeUnmount, ref } from 'vue'
 
 const props = defineProps(Props)
