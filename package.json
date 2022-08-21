@@ -1,5 +1,5 @@
 {
-  "name": "vue-simple-dropdown",
+  "name": "@kouts/vue-simple-dropdown",
   "description": "A Vue.js 3 simple dropdown component.",
   "version": "0.0.0-semantic-release",
   "license": "MIT",
