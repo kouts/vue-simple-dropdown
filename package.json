@@ -17,10 +17,6 @@
     ".": {
       "import": "./dist/vue-simple-dropdown.es.js",
       "require": "./dist/vue-simple-dropdown.umd.js"
-    },
-    "./dist/styles.css": {
-      "import": "./dist/styles.css",
-      "require": "./dist/styles.css"
     }
   },
   "unpkg": "dist/vue-simple-dropdown.umd.js",
@@ -28,8 +24,7 @@
   "scripts": {
     "dev": "vite",
     "build:vite": "vue-tsc --noEmit && vite build",
-    "build:sass": "sass --no-source-map src/styles.scss dist/styles.css",
-    "build": "npm run build:vite && npm run build:sass",
+    "build": "npm run build:vite",
     "build-playground": "BUILD_MODE=playground npm run build:vite",
     "preview": "vite preview",
     "lint": "eslint \"**/*.{vue,ts,js}\"",

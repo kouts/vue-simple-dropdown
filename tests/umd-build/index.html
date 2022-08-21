@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+  <link rel="stylsheet" href="https://unpkg.com/floating-vue@^2.0.0-beta.19/dist/style.css" />
+
+  <title>SimpleDropdown UMD build test</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold pt-4">Playground for vue-simple-dropdown</h1>
+
+      <div class="grid grid-cols-2">
+        <div>
+          <div class="mt-4">
+            <button type="button" class="border py-3 px-4 rounded" @click="toggle1 = !toggle1">Show/hide
+              dropdown</button>
+          </div>
+          <div v-if="toggle1" class="mt-4">
+            <vdropdown>
+              <!-- Dropdown trigger -->
+              <button
+                class="dropdown-trigger inline-block px-6 py-3 bg-blue-600 text-white leading-tight rounded hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">
+                Dropdown button
+              </button>
+
+              <!-- Dropdown content -->
+              <template #popper="{ hide }">
+                <ul class="py-1 text-sm text-gray-70">
+                  <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none" @click="hide">
+                      Action (closes dropdown)
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none">Another
+                      action</a>
+                  </li>
+                  <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none">Something else
+                      here</a>
+                  </li>
+                  <li>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none">Last menu
+                      item</a>
+                  </li>
+                </ul>
+              </template>
+            </vdropdown>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://unpkg.com/floating-vue@^2.0.0-beta.19"></script>
+  <!-- <script type="text/javascript" src="/dist/vue-simple-dropdown.umd.js"></script> -->
+  <script>
+    // eslint-disable-next-line no-undef
+    const { createApp } = Vue
+
+    const app = createApp({
+      data() {
+        return {
+          toggle1: true
+        }
+      }
+    })
+
+    // app.component('simpledropdown', SimpleDropdown)
+    // eslint-disable-next-line
+    app.component('vdropdown', FloatingVue.Dropdown)
+
+    app.mount('#app')
+  </script>
+
+</body>
+
+</html>

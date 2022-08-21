@@ -33,16 +33,18 @@ const libConfig = {
   ],
   resolve: { alias },
   build: {
+    minify: false,
     lib: {
       entry: resolve(__dirname, 'src/SimpleDropdown.vue'),
       name: 'SimpleDropdown',
       fileName: (format) => `vue-simple-dropdown.${format}.js`
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'floating-vue'],
       output: {
         globals: {
-          vue: 'Vue'
+          vue: 'Vue',
+          'floating-vue': 'FloatingVue'
         }
       }
     }
