@@ -12,7 +12,7 @@
   ],
   "main": "./dist/vue-simple-dropdown.umd.js",
   "module": "./dist/vue-simple-dropdown.es.js",
-  "types": "./dist/types/VueSimpleDropdown.vue.d.ts",
+  "types": "./dist/types/SimpleDropdown.vue.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vue-simple-dropdown.es.js",
