@@ -13,13 +13,77 @@ A Vue.js 3 simple dropdown menu component for [floating-vue](https://github.com/
 - Customizable CSS selector for the menu items used for the keyboard navigation
 - Opens and closes with the `space` and `enter` key when the dropdown trigger has focus
 - Prevents page scroll while navigating the menu with the keyboard
-- Closes by clicking outside or using the `Esc` key
+- Closes by clicking outside or by using the `Esc` key
 
-## Browsers support
+## Installation
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera |
-| --------- | --------- | --------- | --------- | --------- |
-| Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+```bash
+npm i @kouts/vue-simple-dropdown
+```
+
+## Usage
+
+```html
+<script setup lang="ts">
+import SimpleDropdown from '@kouts/vue-simple-dropdown'
+</script>
+
+<template>
+  <SimpleDropdown class="inline" popper-class="w-64 bg-white border rounded-lg shadow-md">
+    <!-- Dropdown trigger -->
+    <button
+      class="dropdown-trigger inline-block px-6 py-3 bg-blue-600 text-white leading-tight rounded hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"
+    >
+      Dropdown button
+    </button>
+
+    <!-- Dropdown content -->
+    <template #popper="{ hide }">
+      <ul class="py-1 text-sm text-gray-70">
+        <li>
+          <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none" @click="hide">
+            Action (closes dropdown)
+          </a>
+        </li>
+        <li>
+          <a href="#" class="block py-2 px-4 hover:bg-gray-100 focus:bg-gray-100 outline-none">Another action</a>
+        </li>
+      </ul>
+    </template>
+  </SimpleDropdown>
+</template>
+```
+
+## Styling
+`vue-simple-dropdown` does not include any styling. You can use vanilla CSS or your favorite CSS framework to style it.  
+By default it sets the `floating-vue` `Dropdown` theme to `simple-dropdown` and hides the dropdown `arrow`.  
+The `Dropdown` arrow can be enabled by passing a different `theme` `prop`, e.g `theme="my-theme"`.
+
+## Props
+
+`vue-simple-dropdown` inherits **all** `props` from [floating-vue Dropdown](https://floating-vue.starpad.dev/api/#component-props)  
+and sets some defaults:
+
+- `distance: 14`
+- `triggers: ['click']`
+- `theme: "simple-dropdown"`
+- `placement: "bottom-start"`
+- `autoHide: true`
+
+It also **adds** some `props` on top:
+
+| Name | Type | Description | Default
+| :--- | :--- | :--- | :--- |
+| enableArrowNavigation | boolean | Enables/disables the arrow navigation feature | true |
+| itemSelector | string | The dropdown item selector for the arrow navigation | `li > a:not(.disabled):not(:disabled)` |
+
+## Slots
+
+`vue-simple-dropdown` inherits **all** `slots` from [floating-vue Dropdown](https://floating-vue.starpad.dev/api/#component-slots)  
+
+## Events
+
+`vue-simple-dropdown` inherits **all** `events` from [floating-vue Dropdown](https://floating-vue.starpad.dev/api/#component-events)  
 
 # Development
 
