@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.4...v1.0.5) (2022-09-14)
+
+
+### Bug Fixes
+
+* fixed badge paths ([58597c8](https://github.com/kouts/vue-simple-dropdown/commit/58597c85939aaf2a4538d4ceb838241d7ebf3041))
+
 ## [1.0.4](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.3...v1.0.4) (2022-08-26)
 
 
