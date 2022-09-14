@@ -1,4 +1,4 @@
-# vue-simple-dropdown <a href="https://npm.im/vue-simple-dropdown"><img src="https://badgen.net/npm/v/vue-simple-dropdown"></a> ![](https://img.badgesize.io/kouts/vue-simple-dropdown/main/dist/vue-simple-dropdown.umd.js.svg) ![](https://img.badgesize.io/kouts/vue-simple-dropdown/main/dist/vue-simple-dropdown.umd.js.svg?compression=gzip) ![](coverage/badge.svg)
+# vue-simple-dropdown <a href="https://npm.im/@kouts/vue-simple-dropdown"><img src="https://badgen.net/npm/v/@kouts/vue-simple-dropdown"></a> ![](https://img.badgesize.io/kouts/vue-simple-dropdown/main/dist/vue-simple-dropdown.umd.js.svg) ![](https://img.badgesize.io/kouts/vue-simple-dropdown/main/dist/vue-simple-dropdown.umd.js.svg?compression=gzip)
 
 A Vue.js 3 simple dropdown menu component for [floating-vue](https://github.com/Akryum/floating-vue).
 
