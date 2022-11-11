@@ -8,18 +8,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         readonly default: true;
     };
 }, {
-    props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-        readonly itemSelector: {
-            readonly type: StringConstructor;
-            readonly default: "li > a:not(.disabled):not(:disabled)";
-        };
-        readonly enableArrowNavigation: {
-            readonly type: BooleanConstructor;
-            readonly default: true;
-        };
-    }>> & {
-        [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
-    }>>;
+    props: any;
     ARROW_UP_KEY: string;
     ARROW_DOWN_KEY: string;
     ESCAPE_KEY: string;
@@ -41,8 +30,8 @@ declare const _sfc_main: import("vue").DefineComponent<{
     popoverKeydown: (e: KeyboardEvent) => void;
     show: () => void;
     hide: () => void;
-    Dropdown: any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    readonly Dropdown: any;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly itemSelector: {
         readonly type: StringConstructor;
         readonly default: "li > a:not(.disabled):not(:disabled)";
