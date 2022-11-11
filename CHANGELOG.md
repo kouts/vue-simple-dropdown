@@ -1,3 +1,11 @@
+## [1.0.6](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.5...v1.0.6) (2022-11-11)
+
+
+### Bug Fixes
+
+* updated eslint config ([a7dd2c8](https://github.com/kouts/vue-simple-dropdown/commit/a7dd2c81d2a3bd3cc81d495207b048cf63649a45))
+* updated npm packages ([ce7128b](https://github.com/kouts/vue-simple-dropdown/commit/ce7128b52574fec7c9cc7e7ddab82819e2965ae7))
+
 ## [1.0.5](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.4...v1.0.5) (2022-09-14)
 
 
