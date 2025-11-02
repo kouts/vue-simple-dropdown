@@ -1,4 +1,4 @@
-import { defineComponent, ref, onBeforeUnmount, openBlock, createBlock, unref, createSlots, renderList, withCtx, renderSlot, normalizeProps, guardReactiveProps } from "vue";
+import { defineComponent, ref, onBeforeUnmount, createBlock, openBlock, unref, createSlots, renderList, withCtx, renderSlot, normalizeProps, guardReactiveProps } from "vue";
 import { Dropdown } from "floating-vue";
 const Props = {
   itemSelector: {
@@ -28,16 +28,19 @@ const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed
   }
   return list[Math.max(0, Math.min(index, listLength - 1))];
 };
+const ARROW_UP_KEY = "ArrowUp";
+const ARROW_DOWN_KEY = "ArrowDown";
+const ESCAPE_KEY = "Escape";
+const ENTER_KEY = "Enter";
+const SPACE_KEY = " ";
 const _sfc_main = /* @__PURE__ */ defineComponent({
+  ...{
+    name: "SimpleDropdown"
+  },
   __name: "SimpleDropdown",
   props: Props,
   setup(__props) {
     const props = __props;
-    const ARROW_UP_KEY = "ArrowUp";
-    const ARROW_DOWN_KEY = "ArrowDown";
-    const ESCAPE_KEY = "Escape";
-    const ENTER_KEY = "Enter";
-    const SPACE_KEY = " ";
     const baseDropdownRef = ref(null);
     const popoverKeydown = (e) => {
       const popover = baseDropdownRef.value;
@@ -68,10 +71,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     };
     const hide = () => {
-      var _a, _b;
       document.removeEventListener("keydown", popoverKeydown);
       const popover = baseDropdownRef.value;
-      (_b = (_a = popover == null ? void 0 : popover.$refs.popper.$_targetNodes) == null ? void 0 : _a[0]) == null ? void 0 : _b.focus();
+      popover?.$refs.popper.$_targetNodes?.[0]?.focus();
     };
     onBeforeUnmount(() => {
       document.removeEventListener("keydown", popoverKeydown);
@@ -100,7 +102,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const SimpleDropdown_vue_vue_type_style_index_0_lang = "";
 export {
   _sfc_main as default
 };

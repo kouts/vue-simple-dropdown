@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.6...v1.0.7) (2025-11-02)
+
+
+### Bug Fixes
+
+* fixed release workflow ([92ba163](https://github.com/kouts/vue-simple-dropdown/commit/92ba1639d5554ebabb3952fb51df331938a21b69))
+* updated node and npm packages ([43f6894](https://github.com/kouts/vue-simple-dropdown/commit/43f6894fcc86308b1c64b17e4e8cd5991fabf667))
+
 ## [1.0.6](https://github.com/kouts/vue-simple-dropdown/compare/v1.0.5...v1.0.6) (2022-11-11)
 
 

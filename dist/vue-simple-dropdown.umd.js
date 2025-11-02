@@ -1,6 +1,6 @@
 (function(global, factory) {
   typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory(require("vue"), require("floating-vue")) : typeof define === "function" && define.amd ? define(["vue", "floating-vue"], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, global.SimpleDropdown = factory(global.Vue, global.FloatingVue));
-})(this, function(vue, floatingVue) {
+})(this, (function(vue, floatingVue) {
   "use strict";
   const Props = {
     itemSelector: {
@@ -30,16 +30,19 @@
     }
     return list[Math.max(0, Math.min(index, listLength - 1))];
   };
+  const ARROW_UP_KEY = "ArrowUp";
+  const ARROW_DOWN_KEY = "ArrowDown";
+  const ESCAPE_KEY = "Escape";
+  const ENTER_KEY = "Enter";
+  const SPACE_KEY = " ";
   const _sfc_main = /* @__PURE__ */ vue.defineComponent({
+    ...{
+      name: "SimpleDropdown"
+    },
     __name: "SimpleDropdown",
     props: Props,
     setup(__props) {
       const props = __props;
-      const ARROW_UP_KEY = "ArrowUp";
-      const ARROW_DOWN_KEY = "ArrowDown";
-      const ESCAPE_KEY = "Escape";
-      const ENTER_KEY = "Enter";
-      const SPACE_KEY = " ";
       const baseDropdownRef = vue.ref(null);
       const popoverKeydown = (e) => {
         const popover = baseDropdownRef.value;
@@ -70,10 +73,9 @@
         }
       };
       const hide = () => {
-        var _a, _b;
         document.removeEventListener("keydown", popoverKeydown);
         const popover = baseDropdownRef.value;
-        (_b = (_a = popover == null ? void 0 : popover.$refs.popper.$_targetNodes) == null ? void 0 : _a[0]) == null ? void 0 : _b.focus();
+        popover?.$refs.popper.$_targetNodes?.[0]?.focus();
       };
       vue.onBeforeUnmount(() => {
         document.removeEventListener("keydown", popoverKeydown);
@@ -102,6 +104,5 @@
       };
     }
   });
-  const SimpleDropdown_vue_vue_type_style_index_0_lang = "";
   return _sfc_main;
-});
+}));

@@ -8,13 +8,13 @@ export declare const Props: {
         readonly default: true;
     };
 };
-export declare type PopperContentRef = {
+export type PopperContentRef = {
     $el: HTMLElement;
 };
-export declare type PopperRef = {
+export type PopperRef = {
     $_targetNodes: HTMLElement[];
 };
-export declare type BaseDropdownRef = {
+export type BaseDropdownRef = {
     show: () => void;
     hide: () => void;
     $el: HTMLElement;
