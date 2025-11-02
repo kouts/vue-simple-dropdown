@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import SimpleDropdown from '@/SimpleDropdown.vue'
 import { ref } from 'vue'
+import SimpleDropdown from '@/SimpleDropdown.vue'
+
+defineOptions({
+  name: 'App',
+})
 
 const toggle1 = ref(true)
 const toggle2 = ref(true)

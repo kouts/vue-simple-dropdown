@@ -16,10 +16,14 @@
 </template>
 
 <script setup lang="ts">
-import { BaseDropdownRef, Props } from '@/SimpleDropdown.types'
 import { Dropdown } from 'floating-vue'
-import { getNextActiveElement, isVisible } from '@/utils'
 import { onBeforeUnmount, ref } from 'vue'
+import { type BaseDropdownRef, Props } from '@/SimpleDropdown.types'
+import { getNextActiveElement, isVisible } from '@/utils'
+
+defineOptions({
+  name: 'SimpleDropdownNoFocus',
+})
 
 const props = defineProps(Props)
 const ARROW_UP_KEY = 'ArrowUp'

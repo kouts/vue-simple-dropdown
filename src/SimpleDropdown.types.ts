@@ -1,12 +1,12 @@
 export const Props = {
   itemSelector: {
     type: String,
-    default: 'li > a:not(.disabled):not(:disabled)'
+    default: 'li > a:not(.disabled):not(:disabled)',
   },
   enableArrowNavigation: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 } as const
 
 export type PopperContentRef = { $el: HTMLElement }

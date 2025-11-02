@@ -1,19 +1,19 @@
-import del from 'rollup-plugin-delete'
-import dts from 'vite-plugin-dts'
 import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import del from 'rollup-plugin-delete'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 const alias = {
   '@': resolve(__dirname, './src'),
   '@playground': resolve(__dirname, './playground'),
-  '@root': resolve(__dirname, './')
+  '@root': resolve(__dirname, './'),
 }
 
 const playgroundConfig = {
   plugins: [vue()],
   resolve: { alias },
-  build: { outDir: 'dist-playground' }
+  build: { outDir: 'dist-playground' },
 }
 
 const libConfig = {
@@ -28,8 +28,8 @@ const libConfig = {
         const finalFilePath = filePath.replace('/dist/src/', '/dist/types/')
 
         return { filePath: finalFilePath, content }
-      }
-    })
+      },
+    }),
   ],
   resolve: { alias },
   build: {
@@ -37,18 +37,18 @@ const libConfig = {
     lib: {
       entry: resolve(__dirname, 'src/SimpleDropdown.vue'),
       name: 'SimpleDropdown',
-      fileName: (format) => `vue-simple-dropdown.${format}.js`
+      fileName: (format) => `vue-simple-dropdown.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', 'floating-vue'],
       output: {
         globals: {
           vue: 'Vue',
-          'floating-vue': 'FloatingVue'
-        }
-      }
-    }
-  }
+          'floating-vue': 'FloatingVue',
+        },
+      },
+    },
+  },
 }
 
 const config = process.env.BUILD_MODE && process.env.BUILD_MODE === 'playground' ? playgroundConfig : libConfig
