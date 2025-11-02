@@ -8,6 +8,10 @@ jobs:
   ci:
     runs-on: ${{ matrix.os }}
 
+    permissions:
+      id-token: write
+      contents: write       
+
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -30,7 +34,7 @@ jobs:
           package_json_file: package.json          
 
       - name: Install dependencies 📦
-        run: npm install
+        run: pnpm install
 
       - name: Install semantic-release extra plugins 📦
         run: pnpm install --save-dev @semantic-release/changelog @semantic-release/git
@@ -42,7 +46,7 @@ jobs:
         run: pnpm run typecheck
 
       - name: Run tests 🧪
-        run: pnpm run test:unit --if-present
+        run: pnpm run test:unit
 
       - name: Build
         run: pnpm run build
